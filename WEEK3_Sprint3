@@ -1,0 +1,12 @@
+def handle_conversation():
+    context = ""
+    print("Welcome to AI ChatBot!")
+    
+    user_input = extracted_text  # Assuming extracted_text is defined earlier
+    
+    result = chain.invoke({"context": context, "question": user_input}).strip()  # Strip unnecessary text
+    result = result.split("</think>")[-1].strip() 
+    print("Bot:", result)
+
+    context += f"\nUser: {user_input}\nAI: {result}"
+    return result,context
